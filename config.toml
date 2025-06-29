@@ -1,0 +1,55 @@
+#####################################################################################
+# This config file provides examples of how to set up obsmon. The syntax follows    #
+# "Tom's Obvious, Minimal Language" (TOML), which aims to be simple to use and easy #
+# not difficult to understand. For more details about TOML, please take a look at   #
+#           <https://github.com/toml-lang/toml/blob/master/README.md>               #
+#                                                                                   #
+# FYI:                                                                              #
+#    - Comments can be added using a "#" character and are optional                 #
+#    - Indentation is also optional, but highly encouraged                          #
+#    - Please read the PDF doc file for more info on the options below AND on       #
+#      options that do not appear here                                              #
+#####################################################################################
+
+###################
+# General options #
+###################
+[general]
+    # Some of the general options below may be optional even though they are not marked
+    # as such here. There are also other options that have not been listed here.
+    # To know more, and for default values, please see the PDF doc file.
+    configName = "My config name" # Optional. If set, will appear in the GUI and logs.
+    logLevel = "INFO"
+    # cacheDir is optional. However, at ECMWF, we recommend setting it to somewhere
+    # under your $SCRATCH directory.
+    cacheDir = ".Rcache"
+    sessionTimeout = 1800 # In seconds. Optional.
+    appTimeout = 5 # In seconds. Optional.
+    multiPlotsEnableInteractivity = true # The default value is false
+
+######################################
+# Configuring domain grid & geometry #
+######################################
+# See
+# <https://hirlam.org/trac/wiki/HarmonieSystemDocumentation/ModelDomain>
+# for an explanation of what these parameters mean.
+[domain]
+    nlon = 90
+    nlat = 96
+    lonc = 16.763011639
+    latc = 63.489212956
+    lon0 = 15.0
+    lat0 = 63.0
+    gsize = 25000
+    lmrt = false
+
+###########################
+# Configuring experiments #
+###########################
+[[experiments]]
+    # displayName: The name you will see in the GUI to identify your experiments
+    displayName = "First Experiment"
+    # path: The path to your experiments' data files. Obsmon expects to find
+    # directories named "ecma", "ccma", "ecma_sfc" under the selected path
+    path = "/home/lagha/Logiciels/obsmon/tests/testthat/test_data/mock_experiment"
+
